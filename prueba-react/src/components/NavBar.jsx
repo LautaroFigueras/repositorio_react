@@ -14,6 +14,7 @@ function NavBar() {
                 <a>Contacto </a>
                 </li>
                 </ul>
+            <CartWidget />    
         </div>
 
     )
