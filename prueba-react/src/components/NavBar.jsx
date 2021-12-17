@@ -1,21 +1,49 @@
-import React from 'react'
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+
+
+
+
 
 function NavBar() {
     return(
-        <div>
-                <ul> 
-                <li> 
-                <a>Inicio </a>
-                </li>
-                <li> 
-                <a>Imagenes </a>
-                </li>
-                <li> 
-                <a>Contacto </a>
-                </li>
-                </ul>
+        <>
+             <Navbar bg="dark" variant="dark">
+                        <Container>
+                        <Navbar.Brand href="#home">Magic</Navbar.Brand>
+                        <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#features">Remeras</Nav.Link>
+                        <Nav.Link href="#pricing">Cuadros</Nav.Link>
+                        </Nav>
+                        </Container>
+                    </Navbar>
+                    <br />
+                    <Navbar bg="primary" variant="dark">
+                        <Container>
+                        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                        <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        </Nav>
+                        </Container>
+                    </Navbar>
+
+                    <br />
+                    <Navbar bg="light" variant="light">
+                        <Container>
+                        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                        <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        </Nav>
+                        </Container>
+             </Navbar>
             <CartWidget />    
-        </div>
+        </>
 
     )
 
