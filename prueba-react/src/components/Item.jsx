@@ -1,9 +1,10 @@
 import React from 'react'
+import getOneProduct from './servicios/promiseForDetail'
 
     function Item({prod}) {
         return(
             <div>
-                productos
+                <getOneProduct />
             </div>
         )
     }

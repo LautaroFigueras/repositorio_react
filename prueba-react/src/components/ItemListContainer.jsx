@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import ItemCount from "./ItemCount"
-// import getProducts from "../services/handMadePromiise";
+import ItemCount from "./ItemCount";
+
 
 
 const ItemListContainer = ({greeting}) =>{
@@ -28,7 +28,7 @@ return(
     <div>
         <h3>{greeting}</h3>
         <ItemCount stock={5} initial={1}/>
-        <ItemList products={products}/>
+        <ItemList products={getProducts}/>
 
     </div>
 );

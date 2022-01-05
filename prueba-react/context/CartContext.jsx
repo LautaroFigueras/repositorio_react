@@ -1,4 +1,6 @@
 import { createContext, useState, useContext } from "react";
+import getOneProduct from "../src/components/servicios/promiseForDetail";
+import Cart from "./Cart";
 
 
 const CartContext = createContext([])
@@ -25,16 +27,20 @@ function CartContextProvider({children}) {
     }
 
 
+    const borrarCarrito = () =>{
+        setCartList ([]);
+    };
 
-    function borrarCarrito(){
-        setCartList([])
-    }
+    const borrarItem = () =>{
+        setCartList(cartList.filter((oneProduct)=> oneProduct.id !== id));
+    };
 
 
     return (
         <CartContext.Provider value={{
             cartList,
             agregarAlCarrito,
+            borrarItem,
             borrarCarrito,
         }}>
             {children}
