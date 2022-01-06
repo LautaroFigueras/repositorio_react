@@ -1,26 +1,34 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import ItemCount from "./ItemCount";
+import getOneProduct from "./servicios/promiseForDetail";
+import { doc, getDoc, getFirestore } from "firebase/firestore"
 
 
-
-const ItemListContainer = ({greeting}) =>{
-    conts [getProducts, setProducts] = useState([]);
-    console.log(products)
+function ItemListContainer  ({greeting}) {
+    const [oneProduct, setOneProduct] = useState([]);
+    const [product, setProduct] = useState({})
+    const [loading, setLoading] = useState(true)
 }
+// const getProductsFetch = () => {
+//     fetch("../public/DataList.json")
+//         .then((response)=> response.json())
+//         .then((data) => setProducts(data));    
+// };
 
-const getProductsFetch = () => {
-    fetch("../public/DataList.json")
-        .then((response)=> response.json())
-        .then((data) => setProducts(data));    
-};
 
+const {idCate} = useParams()
+
+// useEffect(() =>{
+//     setTimeout(() => getProductsFetch(), 2000);
+// }, []); 
 
 useEffect(() =>{
-    setTimeout(() => getProductsFetch(), 2000);
-}, []); 
-
-
+    const db = getFirestore()
+    const queryDb = doc(db, 'items','ZHMpdHYznInmoowCR61i')
+    getDoc (queryDb)
+    .then(resp => setProduct ({id: resp.id, ...resp.data() }))
+},[idCate])
 
 
 

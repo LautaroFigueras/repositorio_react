@@ -2,15 +2,15 @@ import React from "react";
 import ItemCount from './ItemCount';
 import { useCartContext } from "./CartContext";
 
-const ItemDetail = (props) => {
-    console.log("Porps en ItemDetail", props);
-    console.log("props item", props.item[0]);
+const ItemDetail = ({prod}) => {
+    console.log("Porps en ItemDetail", prod);
+    console.log("props item", prod.item[0]);
 
     const {cartList ,agregarAlCarrito }= useCartContext()
 
     const onAdd = (cantidad) =>{
         console.log(cantidad)
-        agregarAlCarrito({...props, cantidad})
+        agregarAlCarrito({...prod, cantidad})
     }
 
     console.log(cartList);
