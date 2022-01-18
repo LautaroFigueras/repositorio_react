@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import ItemCount from "./ItemCount";
 import getOneProduct from "./servicios/promiseForDetail";
-import { doc, getDoc, getFirestore } from "firebase/firestore"
+import { collection, getDocs, getFirestore } from "firebase/firestore"
 
 
 function ItemListContainer  ({greeting}) {
@@ -25,8 +25,8 @@ const {idCate} = useParams()
 
 useEffect(() =>{
     const db = getFirestore()
-    const queryDb = doc(db, 'items','ZHMpdHYznInmoowCR61i')
-    getDoc (queryDb)
+    const queryDb = collection(db, 'items','ZHMpdHYznInmoowCR61i')
+    getDocs (queryDb)
     .then(resp => setProduct ({id: resp.id, ...resp.data() }))
 },[idCate])
 

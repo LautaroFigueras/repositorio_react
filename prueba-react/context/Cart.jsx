@@ -1,6 +1,5 @@
 //import { useContext } from "react";
 import { useCartContext } from "./CartContext"
-
 import { addDoc, collection, doc, getFirestore, Timestamp, updateDoc, writeBatch } from "firebase/firestore"
 import { useState } from "react";
 
@@ -83,6 +82,25 @@ function Cart() {
                  onSubmit={generarOrden} 
                 onChange={handleChange} 
             >
+                 <input 
+                    type='text' 
+                    name='name' 
+                    placeholder='name' 
+                    value={dataForm.name}
+                /><br />
+                <input 
+                    type='text' 
+                    name='phone'
+                    placeholder='tel' 
+                    value={dataForm.phone}
+                /><br/>
+                <input 
+                    type='email' 
+                    name='email'
+                    placeholder='email' 
+                    value={dataForm.email}
+                /><br/>
+                <button>Generar Orden</button>
             </form>
             <button onClick={borrarCarrito}>Vaciar Carrito</button>
             <button onClick={() => borrarItem (prod.id)} >Vaciar</button>
